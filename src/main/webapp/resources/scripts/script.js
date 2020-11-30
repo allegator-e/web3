@@ -44,7 +44,7 @@ function change() {
         XYR();
         if (checkY(x,y,r))
             point(x, y, r);
-    }, 100);
+    }, 150);
 
 }
 
@@ -55,9 +55,6 @@ function point(x, y, r) {
 }
 
 function drawPoints(x, y, r) {
-    alert("x"+x);
-    alert("y"+y);
-    alert("r"+r);
     if (getHit(x, y, r) === true) {
         document.querySelector('.graph').innerHTML += '<circle r="3" cx="' + (x * 120 / r + 200) +
             '" cy="' + (y * -120 / r + 200) + '" fill="yellow" ></circle>'
@@ -68,11 +65,11 @@ function drawPoints(x, y, r) {
 }
 
 function getHit(x, y, r) {
-    if (x >= 0 && y >= 0 && x <= 2*y + r){
+    if (x >= 0 && y >= 0 && y <= -x/2 + r/2){
         return true
     }
     if (x <= 0 && y <= 0 && x*x + y*y <= r*r/4){
         return true
     }
-    return (x <= 0 && y >= 0 && x <= -r/2 && y <= r)
+    return (x <= 0 && y >= 0 && x >= -r/2 && y <= r)
 }

@@ -2,7 +2,7 @@
 let svg = document.getElementById('graph');
 
 $(function () {
-    $('.graph').on('click', function (event) {
+    $('.graph').on('click', function click(event) {
         XYR();
         let position = getMousePosition(svg, event);
         let x = position.x;

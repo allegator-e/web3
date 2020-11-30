@@ -73,12 +73,15 @@
 
         <h:panelGroup id="graphTable">
             <ui:repeat value="#{Check.points}" var="point">
-                <h:outputScript>
-                    drawPoints(point.x, point.y, point.r);
-                </h:outputScript>
-            </ui:repeat>
+            <h:outputScript>
+                var x = "#{point.x}";
+                var y = "#{point.y}";
+                var r = "#{point.r}";
+                drawPoints(x, y, r);
+            </h:outputScript>
+        </ui:repeat>
 
-            <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="400" height="400" id="graph" class="graph">
+            <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="400" height="400" id="graph" class="graph" >
                 <line class="axes" x1="0" x2="400" y1="200" y2="200" stroke="black"></line>
                 <line x1="200" x2="200" y1="0" y2="400" stroke="black"></line>
                 <polygon points="200,0 194,25 206,25" stroke="black"></polygon>
